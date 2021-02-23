@@ -16,31 +16,29 @@ ActiveRecord::Schema.define(version: 2021_02_23_192028) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer "home_team_id", null: false
-    t.integer "away_team_id", null: false
     t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["away_team_id"], name: "index_games_on_away_team_id"
-    t.index ["home_team_id"], name: "index_games_on_home_team_id"
   end
 
   create_table "player_game_stats", force: :cascade do |t|
-    t.bigint "match_id"
+    t.bigint "game_id"
     t.bigint "player_id"
     t.decimal "yds"
     t.decimal "comp_pct"
     t.integer "fgm"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["match_id"], name: "index_player_game_stats_on_match_id"
+    t.index ["game_id"], name: "index_player_game_stats_on_game_id"
     t.index ["player_id"], name: "index_player_game_stats_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
     t.string "last_name", null: false
+    t.bigint "team_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_players_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
