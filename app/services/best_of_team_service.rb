@@ -1,7 +1,7 @@
 class BestOfTeamService
   include ::Support::CheckAttr
 
-  def initialize(attr, n = 5, team_id)
+  def initialize(attr, team_id, n = 5)
     @attr = check_attr(attr)
     @team = Team.find(team_id)
     @n = n
