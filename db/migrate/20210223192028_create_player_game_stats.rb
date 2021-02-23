@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+# yds - rushing yards
+# comp_pct - completion percentage
+# fgm - final goals made
+
 class CreatePlayerGameStats < ActiveRecord::Migration[6.1]
   def change
     create_table :player_game_stats do |t|
@@ -6,7 +12,7 @@ class CreatePlayerGameStats < ActiveRecord::Migration[6.1]
       t.decimal :yds
       t.decimal :comp_pct
       t.integer :fgm
-      
+
       t.timestamps
     end
   end
