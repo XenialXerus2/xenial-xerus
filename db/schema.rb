@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_192028) do
     t.index ["home_team_id"], name: "index_games_on_home_team_id"
   end
 
-  create_table "player_match_stats", force: :cascade do |t|
+  create_table "player_game_stats", force: :cascade do |t|
     t.bigint "match_id"
     t.bigint "player_id"
     t.decimal "yds"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2021_02_23_192028) do
     t.integer "fgm"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["match_id"], name: "index_player_match_stats_on_match_id"
-    t.index ["player_id"], name: "index_player_match_stats_on_player_id"
+    t.index ["match_id"], name: "index_player_game_stats_on_match_id"
+    t.index ["player_id"], name: "index_player_game_stats_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
