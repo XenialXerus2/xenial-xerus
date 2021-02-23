@@ -7,7 +7,7 @@
 class CreatePlayerGameStats < ActiveRecord::Migration[6.1]
   def change
     create_table :player_game_stats do |t|
-      t.belongs_to :match
+      t.belongs_to :game
       t.belongs_to :player
       t.decimal :yds
       t.decimal :comp_pct
