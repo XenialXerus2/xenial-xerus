@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+Глоссарий
+yds - rushing yards - Количество ярдов, которое пробежал игрок во время атаки
+comp_pct - completion percentage - Процент успешных передач (точность передач)
+fgm - final goals made - Количество успешно забитых голов
