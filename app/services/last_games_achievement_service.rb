@@ -6,11 +6,12 @@ class LastGamesAchievementService
     @player = Player.find(player_id)
     @n = n
     @last_n_games = @player.team.games.order(date: :desc).distinct.limit(@n)
+    
   end
 
   def call?
-    @player_game = PlayerGameStat.where(player: @player, game_id: @last_n_games.pluck(:id))
-                           .order(@attr => :desc).first
+    @player_game = PlayerGameStat.where(player: @player, game_id: @last_n_games.map(&:id).compact)
+                                 .order(@attr => :desc).first
                            
     score = @player_game.send(@attr)
     score.present? && score > expected_score(@attr)
